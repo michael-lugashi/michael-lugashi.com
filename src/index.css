@@ -1,5 +1,13 @@
 @import 'tailwindcss';
 
+@font-face {
+  font-family: RockNRoll;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./assets/fonts/regular.ttf') format('ttf');
+}
+
 @theme {
   --color-black-p: #18181c;
   --color-black-s: #24242a;
@@ -11,8 +19,18 @@
   --color-purple-s: #6948cb;
   --color-blue-p: #add3e6;
   --color-blue-s: #8cc3dc;
-  --color-brown-p: #b5651d;
+  /* --color-brown-p: #b5651d; */
+  /* --color-brown-p: #4b2e2b; */
+  --color-brown-p: #894c16;
   --color-brown-s: #d28c46;
   --color-pink-p: #ffc0cb;
+  --color-pink-p-transparent: rgba(255, 192, 203, 0.5);
   --color-pink-s: #ffd1dc;
+  --default-font-family: RockNRoll;
+
+  --breakpoint-*: initial;
+  /* --breakpoint-laptop: 26rem; 416px */
+  --breakpoint-laptop: 55rem; /* 880px */
+  /* --breakpoint-laptop: 64rem; 1024px */
+  /* --breakpoint-desktop: 80rem; 1280px */
 }
