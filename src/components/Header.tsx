@@ -4,20 +4,20 @@ import StripedBox from './StripedBox';
 
 const Header = () => {
   return (
-    <div className="text-brown-p relative min-h-screen flex flex-col justify-center items-center tablet:items-start">
-      <div className="relative tablet:absolute w-full tablet:w-1/3 pt-20 tablet:right-1/10 z-10">
+    <div className="text-brown-p relative min-h-screen flex flex-col justify-center items-center laptop:items-start">
+      <div className="relative laptop:absolute w-full laptop:w-1/3 pt-20 laptop:right-1/10 z-10">
         <img
           src={meDoodle}
           alt="me-doodle"
-          className="m-auto w-2/3 min-w-[200px] max-w-[250px] tablet:max-w-[350px] tablet:w-full"
+          className="m-auto w-2/3 min-w-[200px] max-w-[250px] laptop:max-w-[350px] laptop:w-full"
         />
-        <StripedBox className="block absolute top-2/3 -translate-y-1/2 left-0 tablet:hidden h-25 w-full -z-10" />
+        <StripedBox className="block absolute top-2/3 -translate-y-1/2 left-0 laptop:hidden h-25 w-full -z-10" />
       </div>
-      <StripedBox className="tablet:absolute hidden tablet:block h-52 right-0 w-3/4 z-0" />
-      <h1 className="text-3xl tablet:text-6xl mb-4 z-10">
-        Hi, my <br className="tablet:block hidden" /> name is <span className="font-black">Michael</span>
+      <StripedBox className="laptop:absolute hidden laptop:block h-52 right-0 w-3/4 z-0" />
+      <h1 className="text-3xl laptop:text-6xl mb-4 z-10">
+        Hi, my <br className="laptop:block hidden" /> name is <span className="font-black">Michael</span>
       </h1>
-      <h2 className="hidden tablet:block text-3xl mb-40 z-10">
+      <h2 className="hidden laptop:block text-3xl mb-40 z-10">
         I am a <span className="font-black">Fullstack Engineer</span>
       </h2>
       <ScrollIndicator />
