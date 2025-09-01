@@ -14,7 +14,7 @@ const Header = () => {
         <StripedBox className="block absolute top-2/3 -translate-y-1/2 left-0 laptop:hidden h-25 w-full -z-10" />
       </div>
       <StripedBox className="laptop:absolute hidden laptop:block h-52 right-0 w-3/4 z-0" />
-      <h1 className="text-3xl laptop:text-6xl mb-4 z-10">
+      <h1 className="text-3xl mt-2 laptop:mt-0 laptop:text-6xl mb-4 z-10">
         Hi, my <br className="laptop:block hidden" /> name is <span className="font-black">Michael</span>
       </h1>
       <h2 className="hidden laptop:block text-3xl mb-40 z-10">
