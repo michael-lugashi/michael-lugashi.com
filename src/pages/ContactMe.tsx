@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import TextField from './TextField';
-import TextArea from './TextArea';
-import Card from './Card';
-import Title from './Title';
-import Footer from './Footer';
-import Button from './Button';
+import TextField from '../components/TextField';
+import TextArea from '../components/TextArea';
+import Card from '../components/Card';
+import Title from '../components/Title';
+import Footer from '../components/Footer';
+import Button from '../components/Button';
 
 interface FormData {
   name: string;

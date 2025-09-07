@@ -1,7 +1,7 @@
 import './App.css';
-import Header from './components/Header';
-import ContactMe from './components/ContactMe';
-import AboutMe from './components/AboutMe';
+import Header from './pages/Header';
+import ContactMe from './pages/ContactMe';
+import AboutMe from './pages/AboutMe';
 
 function App() {
   return (

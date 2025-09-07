@@ -1,5 +1,5 @@
 import React from 'react';
-import Title from './Title';
+import Title from '../components/Title';
 import computer from '../assets/images/computer.png';
 import frisbee from '../assets/images/frisbee.png';
 
