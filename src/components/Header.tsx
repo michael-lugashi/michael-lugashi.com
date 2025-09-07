@@ -15,7 +15,11 @@ const Header = () => {
       </div>
       <StripedBox className="laptop:absolute hidden laptop:block h-52 right-0 w-3/4 z-0" />
       <h1 className="text-3xl mt-2 laptop:mt-0 laptop:text-6xl mb-4 z-10">
-        Hi, my <br className="laptop:block hidden" /> name is <span className="font-black">Michael</span>
+        Hi, my <br className="laptop:block hidden" /> name is{' '}
+        {/* The {' '} is used to ensure a space is rendered between "is" and the next element, the prettier formatter won't just let me leave a space */}
+        <span className="font-black">
+          Michael<span className="font-black text-brown-s">.</span>
+        </span>
       </h1>
       <h2 className="hidden laptop:block text-3xl mb-40 z-10">
         I am a <span className="font-black">Fullstack Engineer</span>
