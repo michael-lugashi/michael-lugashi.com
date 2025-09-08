@@ -2,7 +2,7 @@ const ScrollIndicator: React.FC = () => {
   return (
     <div className="flex flex-col laptop:absolute top-3/5 items-center justify-center w-min laptop:ml-36">
       <span className="text-gray-p tracking-[0.5em] mb-4 text-sm">SCROLL</span>
-      <div className="w-px h-96 bg-gray-p mr-1" />
+      <div className="w-px min-h-80 h-[35vh] bg-gray-p mr-1" />
     </div>
   );
 };

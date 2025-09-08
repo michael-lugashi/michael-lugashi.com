@@ -23,7 +23,7 @@ const Title: React.FC<TitleProps> = ({ title, subtitle, showLine = true, align =
 
   return (
     <div className={`${alignmentClasses[align]} mb-10 relative ${className}`}>
-      <h2 className="text-6xl font-bold text-brown-p mb-6 leading-tight">
+      <h2 className="text-5xl font-bold text-brown-p mb-6 leading-tight">
         {title}
         <span className="font-bold text-brown-s">.</span>
       </h2>
@@ -33,9 +33,7 @@ const Title: React.FC<TitleProps> = ({ title, subtitle, showLine = true, align =
         />
       )}
       {subtitle && (
-        <p className={`text-2xl text-brown-p/80 max-w-2xl leading-relaxed ${lineAlignmentClasses[align]}`}>
-          {subtitle}
-        </p>
+        <p className={`text-xl text-brown-p max-w-2xl leading-relaxed ${lineAlignmentClasses[align]}`}>{subtitle}</p>
       )}
     </div>
   );

@@ -5,9 +5,9 @@ import frisbee from '../assets/images/frisbee.png';
 
 const AboutMe: React.FC = () => {
   return (
-    <section className="p-20">
+    <section>
       <Title title="About Me" align="left" />
-      <div className="flex flex-col text-brown-p gap-16 laptop:gap-0">
+      <div className="flex flex-col text-brown-p gap-16 laptop:gap-0 text-xl">
         <div className="flex flex-col laptop:flex-row justify-between w-full gap-16 laptop:gap-0">
           <div className="w-full laptop:w-1/2">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et

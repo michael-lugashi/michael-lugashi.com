@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import TextField from '../components/TextField';
 import TextArea from '../components/TextArea';
 import Card from '../components/Card';
@@ -97,7 +97,7 @@ const ContactMe: React.FC = () => {
   };
 
   return (
-    <section className="py-20 relative max-w-4xl mx-auto laptop:px-6">
+    <section className="relative max-w-4xl mx-auto laptop:px-6">
       {/* Header Section */}
       <Title
         title="Let's Work Together"
