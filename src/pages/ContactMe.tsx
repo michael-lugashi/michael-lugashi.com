@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import TextField from './TextField';
-import TextArea from './TextArea';
-import Card from './Card';
-import Title from './Title';
-import Footer from './Footer';
-import Button from './Button';
+import { useState } from 'react';
+import TextField from '../components/TextField';
+import TextArea from '../components/TextArea';
+import Card from '../components/Card';
+import Title from '../components/Title';
+import Footer from '../components/Footer';
+import Button from '../components/Button';
 
 interface FormData {
   name: string;
@@ -97,7 +97,7 @@ const ContactMe: React.FC = () => {
   };
 
   return (
-    <section className="py-20 relative max-w-4xl mx-auto laptop:px-6">
+    <section className="relative max-w-4xl mx-auto laptop:px-6">
       {/* Header Section */}
       <Title
         title="Let's Work Together"

@@ -1,6 +1,6 @@
-import ScrollIndicator from './ScrollIndicator';
+import ScrollIndicator from '../components/ScrollIndicator';
 import meDoodle from '../assets/images/me-doodle.png';
-import StripedBox from './StripedBox';
+import StripedBox from '../components/StripedBox';
 
 const Header = () => {
   return (

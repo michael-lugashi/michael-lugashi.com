@@ -29,7 +29,7 @@
   --default-font-family: RockNRoll;
 
   --breakpoint-*: initial;
-  /* --breakpoint-laptop: 26rem; 416px */
+  --breakpoint-tablet: 26rem; /* 416px */
   --breakpoint-laptop: 55rem; /* 880px */
   /* --breakpoint-laptop: 64rem; 1024px */
   /* --breakpoint-desktop: 80rem; 1280px */
