@@ -1,6 +1,7 @@
 import React from 'react';
 
 interface TextFieldProps {
+  inputRef?: React.RefObject<HTMLInputElement | null>;
   label: string;
   name: string;
   type?: 'text' | 'email' | 'tel';
@@ -12,6 +13,7 @@ interface TextFieldProps {
 }
 
 const TextField: React.FC<TextFieldProps> = ({
+  inputRef = null,
   label,
   name,
   type = 'text',
@@ -28,6 +30,7 @@ const TextField: React.FC<TextFieldProps> = ({
         {required && <span className="text-red-600 ml-2 text-xl">*</span>}
       </label>
       <input
+        ref={inputRef}
         formNoValidate
         id={name}
         name={name}

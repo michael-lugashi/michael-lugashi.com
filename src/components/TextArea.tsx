@@ -2,6 +2,7 @@ import React from 'react';
 
 interface TextAreaProps {
   label: string;
+  textareaRef?: React.RefObject<HTMLTextAreaElement | null>;
   name: string;
   placeholder?: string;
   required?: boolean;
@@ -12,6 +13,7 @@ interface TextAreaProps {
 }
 
 const TextArea: React.FC<TextAreaProps> = ({
+  textareaRef = null,
   label,
   name,
   placeholder,
@@ -28,6 +30,7 @@ const TextArea: React.FC<TextAreaProps> = ({
         {required && <span className="text-red-600 ml-2 text-xl">*</span>}
       </label>
       <textarea
+        ref={textareaRef}
         id={name}
         name={name}
         placeholder={placeholder}
