@@ -2,7 +2,11 @@ import Github from '../assets/svgs/Github';
 import LinkedIn from '../assets/svgs/LinkedIn';
 import TextBubble from '../assets/svgs/TextBubble';
 
-const NavBar: React.FC = () => {
+interface NavBarProps {
+  handleScrollToContactMe: () => void;
+}
+
+const NavBar: React.FC<NavBarProps> = ({ handleScrollToContactMe }) => {
   return (
     // <nav className="sticky top-0 z-50 bg-white-p/70 backdrop-blur-sm">
     <nav className="fixed top-0 z-50 w-full bg-gradient-to-b from-white-p via-white-p/70 to-transparent">
@@ -28,9 +32,9 @@ const NavBar: React.FC = () => {
           </a>
         </div>
         <a
-          href="#contact"
+          onClick={handleScrollToContactMe}
           aria-label="Contact"
-          className="hover:text-brown-p flex flex-row text-brown-s transition-all duration-300 hover:scale-115 hover:drop-shadow-[0_0_10px_theme(colors.brown-s)]"
+          className="hover:text-brown-p cursor-pointer flex flex-row text-brown-s transition-all duration-300 hover:scale-115 hover:drop-shadow-[0_0_10px_theme(colors.brown-s)]"
         >
           <TextBubble className="w-6 h-7 mr-1" />
           <span className="font-bold text-xl"> Hire Me!</span>
