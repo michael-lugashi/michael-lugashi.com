@@ -36,7 +36,7 @@ const NavBar: React.FC<NavBarProps> = ({ handleScrollToContactMe }) => {
           aria-label="Contact"
           className="hover:text-brown-p cursor-pointer flex flex-row text-brown-s transition-all duration-300 hover:scale-115 hover:drop-shadow-[0_0_10px_theme(colors.brown-s)]"
         >
-          <TextBubble className="w-6 h-7 mr-1" />
+          <TextBubble className="w-6 h-7 mr-1 scale-x-[-1] -rotate-[5deg]" />
           <span className="font-bold text-xl"> Hire Me!</span>
         </a>
       </div>
