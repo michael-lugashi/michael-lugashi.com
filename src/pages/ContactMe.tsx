@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import TextField from '../components/TextField';
 import TextArea from '../components/TextArea';
 import Card from '../components/Card';
@@ -30,35 +30,56 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref }) => {
     subject: '',
     message: '',
   });
+  const nameRef = useRef<HTMLInputElement | null>(null);
+  const emailRef = useRef<HTMLInputElement | null>(null);
+  const subjectRef = useRef<HTMLInputElement | null>(null);
+  const messageRef = useRef<HTMLTextAreaElement | null>(null);
+
+  const fieldRefs: Record<keyof FormData, React.RefObject<HTMLInputElement | HTMLTextAreaElement | null>> = {
+    name: nameRef,
+    email: emailRef,
+    subject: subjectRef,
+    message: messageRef,
+  };
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const validateForm = (): boolean => {
+    let firstError: keyof FormData | undefined;
     const newErrors: FormErrors = {};
 
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
+      firstError = 'name';
     }
 
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
+      firstError ??= 'email';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = 'Please enter a valid email address';
+      firstError ??= 'email';
     }
 
     if (!formData.subject.trim()) {
       newErrors.subject = 'Subject is required';
+      firstError ??= 'subject';
     }
 
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required';
+      firstError ??= 'message';
     } else if (formData.message.trim().length < 10) {
       newErrors.message = 'Message must be at least 10 characters long';
+      firstError ??= 'message';
     }
 
     setErrors(newErrors);
+    if (firstError) {
+      fieldRefs[firstError].current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
     return Object.keys(newErrors).length === 0;
   };
 
@@ -117,6 +138,7 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref }) => {
           noValidate
         >
           <TextField
+            inputRef={nameRef}
             label="Your Name"
             name="name"
             type="text"
@@ -128,6 +150,7 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref }) => {
           />
 
           <TextField
+            inputRef={emailRef}
             label="Email Address"
             name="email"
             type="email"
@@ -139,6 +162,7 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref }) => {
           />
 
           <TextField
+            inputRef={subjectRef}
             label="Subject"
             name="subject"
             type="text"
@@ -150,6 +174,7 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref }) => {
           />
 
           <TextArea
+            textareaRef={messageRef}
             label="Your Message"
             name="message"
             placeholder="Tell me more about your project, ideas, or questions..."
