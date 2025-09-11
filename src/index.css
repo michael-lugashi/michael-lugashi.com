@@ -8,6 +8,8 @@
   src: url('./assets/fonts/regular.ttf') format('ttf');
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-black-p: #18181c;
   --color-black-s: #24242a;
@@ -35,7 +37,7 @@
   /* --breakpoint-desktop: 80rem; 1280px */
 }
 
-@utility scrollbar-thin {
+/* @utility scrollbar-thin {
   &::-webkit-scrollbar-thumb {
     border: min(0.2vw, 2px) solid rgba(0, 0, 0, 0);
     background-clip: padding-box;
@@ -60,10 +62,13 @@
     height: 1.2vw;
     max-height: 10px;
   }
-}
+} */
 
 html {
-  scrollbar-color: var(--color-pink-p) transparent;
+  scrollbar-color: var(--color-brown-s) var(--color-white-p);
+  &.dark {
+    scrollbar-color: var(--color-pink-p) var(--color-black-p);
+  }
 }
 
 /* Custom animations for the contact form */
