@@ -6,7 +6,7 @@ import AboutMe from './pages/AboutMe';
 import Projects from './pages/Projects';
 import projects from './assets/data/projects.json';
 import useScrollIntoView from './hooks/useScrollIntoView';
-import ThemeToggleBar from './pages/ThemeToggleBar';
+import ThemeToggleBar from './components/ThemeToggleBar';
 
 function App() {
   const [ContactMeRef, handleScrollToContactMe] = useScrollIntoView();
