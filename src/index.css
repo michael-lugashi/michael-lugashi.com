@@ -9,6 +9,8 @@
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
+@custom-variant short (@media (max-height: 900px));
+@custom-variant tall  (@media (min-height: 900px));
 
 @theme {
   --color-black-p: #18181c;
