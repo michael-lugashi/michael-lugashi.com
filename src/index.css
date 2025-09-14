@@ -73,6 +73,13 @@ html {
   }
 }
 
+/* Smooth theme transition */
+html.theme-transition,
+html.theme-transition * {
+  transition: background-color 900ms ease, color 900ms ease, border-color 900ms ease, fill 900ms ease, stroke 900ms ease,
+    box-shadow 900ms ease;
+}
+
 /* Custom animations for the contact form */
 @keyframes fade-in {
   from {
