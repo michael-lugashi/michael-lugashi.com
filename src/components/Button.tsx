@@ -28,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({
     <span className="relative z-10">
       {isLoading ? (
         <div className="flex items-center gap-3">
-          <div className="w-5 h-5 border-2 border-brown-p/30 border-t-brown-p rounded-full animate-spin"></div>
+          <div className="w-5 h-5 border-2 border-brown-p/30 border-t-brown-p rounded-full animate-spin" />
           Loading...
         </div>
       ) : (
