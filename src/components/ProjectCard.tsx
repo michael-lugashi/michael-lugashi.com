@@ -21,7 +21,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ imageUrl, title, text, button
         <img src={imageUrl} alt={title} className="w-2/3 max-w-70" />
       </div>
 
-      <div className="order-1 laptop:order-2 flex flex-col justify-start w-full laptop:w-7/12 laptop:px-4 text-brown-p">
+      <div className="order-1 laptop:order-2 flex flex-col justify-start w-full laptop:w-7/12 laptop:px-4 text-brown-p dark:text-pink-p">
         <h3 className="text-5xl font-black  mb-4">
           {title}
           <span className="text-brown-s">.</span>

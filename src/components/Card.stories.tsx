@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+
 import Card from './Card';
 
 const meta: Meta<typeof Card> = {
@@ -14,7 +15,7 @@ export const Default: Story = {
   render: () => (
     <div className="p-6 bg-white-p">
       <Card>
-        <div className="text-brown-p">This is inside a Card component.</div>
+        <div className="text-brown-p dark:text-pink-p">This is inside a Card component.</div>
       </Card>
     </div>
   ),

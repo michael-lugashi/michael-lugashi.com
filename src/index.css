@@ -8,6 +8,10 @@
   src: url('./assets/fonts/regular.ttf') format('ttf');
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant short (@media (max-height: 900px));
+@custom-variant tall  (@media (min-height: 900px));
+
 @theme {
   --color-black-p: #18181c;
   --color-black-s: #24242a;
@@ -23,9 +27,9 @@
   /* --color-brown-p: #4b2e2b; */
   --color-brown-p: #894c16;
   --color-brown-s: #d28c46;
-  --color-pink-p: #ffc0cb;
-  --color-pink-p-transparent: rgba(255, 192, 203, 0.5);
-  --color-pink-s: #ffd1dc;
+  --color-brown-p-transparent: rgba(137, 76, 22, 0.5);
+  --color-pink-p: #ffd1dc;
+  --color-pink-p-transparent: rgba(255, 209, 220, 0.5);
   --default-font-family: RockNRoll;
 
   --breakpoint-*: initial;
@@ -35,7 +39,7 @@
   /* --breakpoint-desktop: 80rem; 1280px */
 }
 
-@utility scrollbar-thin {
+/* @utility scrollbar-thin {
   &::-webkit-scrollbar-thumb {
     border: min(0.2vw, 2px) solid rgba(0, 0, 0, 0);
     background-clip: padding-box;
@@ -60,10 +64,20 @@
     height: 1.2vw;
     max-height: 10px;
   }
-}
+} */
 
 html {
-  scrollbar-color: var(--color-pink-p) transparent;
+  scrollbar-color: var(--color-brown-s) var(--color-white-p);
+  &.dark {
+    scrollbar-color: var(--color-pink-p) var(--color-black-p);
+  }
+}
+
+/* Smooth theme transition */
+html.theme-transition,
+html.theme-transition * {
+  transition: background-color 900ms ease, color 900ms ease, border-color 900ms ease, fill 900ms ease, stroke 900ms ease,
+    box-shadow 900ms ease;
 }
 
 /* Custom animations for the contact form */
