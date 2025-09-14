@@ -25,7 +25,7 @@ const TextArea: React.FC<TextAreaProps> = ({
 }) => {
   return (
     <div className="mb-8 relative">
-      <label htmlFor={name} className="block text-brown-p text-lg font-semibold mb-3">
+      <label htmlFor={name} className="block text-brown-p dark:text-pink-p text-lg font-semibold mb-3">
         {label}
         {required && <span className="text-red-600 ml-2 text-xl">*</span>}
       </label>
