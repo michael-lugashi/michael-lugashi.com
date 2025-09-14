@@ -27,9 +27,9 @@
   /* --color-brown-p: #4b2e2b; */
   --color-brown-p: #894c16;
   --color-brown-s: #d28c46;
-  --color-pink-p: #ffc0cb;
-  --color-pink-p-transparent: rgba(255, 192, 203, 0.5);
-  --color-pink-s: #ffd1dc;
+  --color-brown-p-transparent: rgba(137, 76, 22, 0.5);
+  --color-pink-p: #ffd1dc;
+  --color-pink-p-transparent: rgba(255, 209, 220, 0.5);
   --default-font-family: RockNRoll;
 
   --breakpoint-*: initial;
