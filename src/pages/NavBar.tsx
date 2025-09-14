@@ -7,17 +7,19 @@ interface NavBarProps {
 }
 
 const NavBar: React.FC<NavBarProps> = ({ handleScrollToContactMe }) => {
+  const className =
+    'hover:text-brown-p dark:hover:text-pink-p active:scale-95 text-brown-s dark:text-pink-p transition-all duration-300 hover:scale-115 hover:drop-shadow-[0_0_10px_theme(colors.brown-s)] dark:hover:drop-shadow-[0_0_10px_theme(colors.pink-p)] cursor-pointer';
   return (
     // <nav className="sticky top-0 z-50 bg-white-p/70 backdrop-blur-sm">
-    <nav className="fixed top-0 z-50 w-full bg-gradient-to-b from-white-p via-white-p/70 to-transparent">
+    <nav className="fixed top-0 z-50 w-full bg-gradient-to-b dark:from-black-p dark:via-black-p/70 from-white-p via-white-p/70 to-transparent">
       <div className="px-4 tablet:px-8 laptop:px-16 max-w-[1500px] pb-6 mx-auto h-20 flex items-center justify-between">
-        <div className="flex items-center gap-4 text-brown-s">
+        <div className="flex items-center gap-4 ">
           <a
             href="https://github.com/michael-lugashi?tab=repositories"
             aria-label="GitHub"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-brown-p transition-all duration-300 hover:scale-115 hover:drop-shadow-[0_0_10px_theme(colors.brown-s)]"
+            className={className}
           >
             <Github />
           </a>
@@ -26,16 +28,12 @@ const NavBar: React.FC<NavBarProps> = ({ handleScrollToContactMe }) => {
             aria-label="LinkedIn"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-brown-p transition-all duration-300 hover:scale-115 hover:drop-shadow-[0_0_10px_theme(colors.brown-s)]"
+            className={className}
           >
             <LinkedIn />
           </a>
         </div>
-        <a
-          onClick={handleScrollToContactMe}
-          aria-label="Contact"
-          className="hover:text-brown-p cursor-pointer flex flex-row text-brown-s transition-all duration-300 hover:scale-115 hover:drop-shadow-[0_0_10px_theme(colors.brown-s)]"
-        >
+        <a onClick={handleScrollToContactMe} aria-label="Contact" className={`${className} flex flex-row`}>
           <TextBubble className="w-6 h-7 mr-1 scale-x-[-1] -rotate-[5deg]" />
           <span className="font-bold text-xl"> Hire Me!</span>
         </a>
