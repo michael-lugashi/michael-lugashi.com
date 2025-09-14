@@ -4,7 +4,7 @@ import StripedBox from '../components/StripedBox';
 
 const Header = () => {
   return (
-    <div className="text-brown-p relative min-h-screen flex flex-col justify-center items-center laptop:items-start">
+    <div className="text-brown-p dark:text-pink-p relative min-h-screen flex flex-col justify-center items-center laptop:items-start">
       <div className="relative laptop:absolute w-full laptop:w-1/3 pt-20 laptop:right-1/10 z-10">
         <img
           src={meDoodle}
