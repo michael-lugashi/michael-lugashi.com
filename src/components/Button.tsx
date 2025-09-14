@@ -19,10 +19,10 @@ const Button: React.FC<ButtonProps> = ({
     type={type}
     onClick={onClick}
     disabled={disabled || isLoading}
-    className={`transition-all duration-300 transform px-12 py-3 text-xl font-bold rounded-2xl text-brown-p border-2 border-brown-p ${className} ${
+    className={`transition-all cursor-pointer duration-300 transform px-12 py-3 text-xl font-bold rounded-2xl text-brown-p dark:text-pink-p border-2 border-brown-p dark:border-pink-p ${className} ${
       disabled
         ? 'hover:scale-100 active:scale-100 cursor-not-allowed bg-gray-400/40'
-        : 'hover:scale-105 active:scale-95 bg-[repeating-linear-gradient(45deg,theme(colors.pink-p-transparent)_0px,theme(colors.pink-p-transparent)_3px,transparent_3px,transparent_10px)] hover:bg-pink-p/40 '
+        : 'hover:scale-110 active:scale-95 bg-[repeating-linear-gradient(45deg,theme(colors.pink-p-transparent)_0px,theme(colors.pink-p-transparent)_3px,transparent_3px,transparent_10px)] hover:bg-pink-p/40 dark:bg-[repeating-linear-gradient(45deg,theme(colors.brown-p-transparent)_0px,theme(colors.brown-p-transparent)_3px,transparent_3px,transparent_10px)] dark:hover:bg-brown-p/30 '
     }`}
   >
     <span className="relative z-10">
