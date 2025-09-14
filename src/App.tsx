@@ -19,7 +19,8 @@ function App() {
         <Header />
         <Projects projects={projects} />
         <AboutMe />
-        <ContactMe ref={ContactMeRef} />
+        {/* for the header of the contact me section to not be faded by navbar a padding top was added and the margin top was added to offset the padding top */}
+        <ContactMe ref={ContactMeRef} className="pt-20 -mt-20" />
       </div>
     </div>
   );

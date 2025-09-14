@@ -8,6 +8,7 @@ import Button from '../components/Button';
 
 interface ContactMeProps {
   ref: React.RefObject<HTMLDivElement | null>;
+  className?: string;
 }
 interface FormData {
   name: string;
@@ -23,7 +24,7 @@ interface FormErrors {
   message?: string;
 }
 
-const ContactMe: React.FC<ContactMeProps> = ({ ref }) => {
+const ContactMe: React.FC<ContactMeProps> = ({ ref, className }) => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -121,7 +122,7 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref }) => {
   };
 
   return (
-    <section className="relative max-w-4xl mx-auto laptop:px-6" ref={ref}>
+    <section className={`relative max-w-4xl mx-auto laptop:px-6 ${className}`} ref={ref}>
       {/* Header Section */}
       <Title
         title="Let's Work Together"
