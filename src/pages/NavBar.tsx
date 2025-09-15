@@ -2,7 +2,6 @@ import Github from '../assets/svgs/Github';
 import LinkedIn from '../assets/svgs/LinkedIn';
 import TextBubble from '../assets/svgs/TextBubble';
 import cvPdf from '../assets/pdfs/cv-michael_lugashi.pdf';
-import Cv from '../assets/svgs/Cv';
 import CvBadge from '../assets/svgs/CvBadge';
 interface NavBarProps {
   handleScrollToContactMe: () => void;
