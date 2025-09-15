@@ -5,6 +5,7 @@ import Card from '../components/Card';
 import Title from '../components/Title';
 import Footer from '../components/Footer';
 import Button from '../components/Button';
+import Send from '../assets/svgs/Send';
 
 interface ContactMeProps {
   ref: React.RefObject<HTMLDivElement | null>;
@@ -188,7 +189,14 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref, className = '' }) => {
           {/* Submit Button and Status */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-6">
             <Button type="submit" isLoading={isSubmitting}>
-              {isSubmitting ? 'Sending...' : 'Send Message =>'}
+              {isSubmitting ? (
+                'Sending...'
+              ) : (
+                <span className="inline-flex items-center gap-2">
+                  <span>Send Message</span>
+                  <Send />
+                </span>
+              )}
             </Button>
 
             {/* Status Messages */}
