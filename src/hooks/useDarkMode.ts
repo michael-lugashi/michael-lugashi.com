@@ -7,12 +7,20 @@ const isColorModeOption = (mode: unknown): mode is ColorMode => mode === 'light'
 
 const getSystemPreference = () => (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
-const applyThemeTransition = (html: HTMLElement) => {
-  html.classList.add('theme-transition');
-  setTimeout(() => {
-    html.classList.remove('theme-transition');
-  }, 1000);
-};
+const applyThemeTransition = (() => {
+  let timeoutId: ReturnType<typeof setTimeout> | null = null;
+  return (html: HTMLElement) => {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+      timeoutId = null;
+    }
+    html.classList.add('theme-transition');
+    timeoutId = setTimeout(() => {
+      html.classList.remove('theme-transition');
+      timeoutId = null;
+    }, 1000);
+  };
+})();
 
 const toggleHtmlDarkMode = (mode: ColorMode) => {
   const html = document.documentElement;
