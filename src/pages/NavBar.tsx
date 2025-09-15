@@ -1,14 +1,16 @@
 import Github from '../assets/svgs/Github';
 import LinkedIn from '../assets/svgs/LinkedIn';
 import TextBubble from '../assets/svgs/TextBubble';
-
+import cvPdf from '../assets/pdfs/cv-michael_lugashi.pdf';
+import Cv from '../assets/svgs/Cv';
+import CvBadge from '../assets/svgs/CvBadge';
 interface NavBarProps {
   handleScrollToContactMe: () => void;
 }
 
 const NavBar: React.FC<NavBarProps> = ({ handleScrollToContactMe }) => {
   const className =
-    'hover:text-brown-p dark:hover:text-pink-p active:scale-95 text-brown-s dark:text-pink-p transition-all duration-300 hover:scale-115 hover:drop-shadow-[0_0_10px_theme(colors.brown-s)] dark:hover:drop-shadow-[0_0_10px_theme(colors.pink-p)] cursor-pointer';
+    'hover:text-brown-p dark:hover:text-pink-p tablet:active:scale-90 active:scale-130 text-brown-s dark:text-pink-p transition-all duration-300 hover:scale-115 hover:drop-shadow-[0_0_10px_theme(colors.brown-s)] dark:hover:drop-shadow-[0_0_10px_theme(colors.pink-p)] cursor-pointer';
   return (
     // <nav className="sticky top-0 z-50 bg-white-p/70 backdrop-blur-sm">
     <nav className="fixed top-0 z-50 w-full bg-gradient-to-b dark:from-black-p dark:via-black-p/70 from-white-p via-white-p/70 to-transparent">
@@ -31,6 +33,9 @@ const NavBar: React.FC<NavBarProps> = ({ handleScrollToContactMe }) => {
             className={className}
           >
             <LinkedIn />
+          </a>
+          <a href={cvPdf} aria-label="CV" target="_blank" className={className}>
+            <CvBadge className="w-5" />
           </a>
         </div>
         <a onClick={handleScrollToContactMe} aria-label="Contact" className={`${className} flex flex-row`}>

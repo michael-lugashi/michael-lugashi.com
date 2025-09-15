@@ -5,6 +5,7 @@ import Card from '../components/Card';
 import Title from '../components/Title';
 import Footer from '../components/Footer';
 import Button from '../components/Button';
+import Send from '../assets/svgs/Send';
 
 interface ContactMeProps {
   ref: React.RefObject<HTMLDivElement | null>;
@@ -24,7 +25,7 @@ interface FormErrors {
   message?: string;
 }
 
-const ContactMe: React.FC<ContactMeProps> = ({ ref, className }) => {
+const ContactMe: React.FC<ContactMeProps> = ({ ref, className = '' }) => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -126,10 +127,17 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref, className }) => {
       {/* Header Section */}
       <Title
         title="Let's Work Together"
-        subtitle="Want to hire me? Have a project in mind? Want to collaborate? Or just want to say hello? I'd love to hear from you and explore the possibilities together."
+        subtitle="Want to hire me full time? Have a project in mind? Want to collaborate on something cool? I'd love to hear from you and explore the possibilities together."
       />
-
-      {/* Form background with glass effect */}
+      <p className="-mt-6 mb-6 text-center text-brown-s dark:text-pink-p">
+        or email me at{' '}
+        <a
+          href="mailto:michael.lugashi@gmail.com"
+          className="font-bold text-brown-p dark:text-pink-p underline underline-offset-4 decoration-2 decoration-brown-p dark:decoration-pink-p hover:no-underline hover:bg-pink-p/60 dark:hover:bg-brown-p/20 rounded px-1 transition-colors"
+        >
+          michael.lugashi@gmail.com
+        </a>
+      </p>
       <Card>
         <form
           onSubmit={(e) => {
@@ -178,7 +186,7 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref, className }) => {
             textareaRef={messageRef}
             label="Your Message"
             name="message"
-            placeholder="Tell me more about your project, ideas, or questions..."
+            placeholder="Tell me more about your company, project, ideas, or questions..."
             required
             value={formData.message}
             onChange={(value) => handleInputChange('message', value)}
@@ -189,7 +197,14 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref, className }) => {
           {/* Submit Button and Status */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-6">
             <Button type="submit" isLoading={isSubmitting}>
-              {isSubmitting ? 'Sending...' : 'Send Message =>'}
+              {isSubmitting ? (
+                'Sending...'
+              ) : (
+                <span className="inline-flex items-center gap-2">
+                  <span>Send Message</span>
+                  <Send />
+                </span>
+              )}
             </Button>
 
             {/* Status Messages */}
@@ -211,7 +226,6 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref, className }) => {
           </div>
         </form>
       </Card>
-
       {/* Bottom decorative element */}
       <Footer text="Ready to start something amazing?" />
     </section>
