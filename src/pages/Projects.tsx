@@ -13,7 +13,7 @@ interface Project {
 
 const Projects: React.FC<{ projects: Project[] }> = ({ projects }) => {
   return (
-    <section className="-mt-30">
+    <section className="laptop:-mt-10 -mt-30">
       <div className="mb-20 flex flex-row justify-between items-stretch">
         <Title
           title="Portfolio"
