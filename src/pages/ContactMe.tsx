@@ -24,7 +24,7 @@ interface FormErrors {
   message?: string;
 }
 
-const ContactMe: React.FC<ContactMeProps> = ({ ref, className }) => {
+const ContactMe: React.FC<ContactMeProps> = ({ ref, className = '' }) => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -126,10 +126,9 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref, className }) => {
       {/* Header Section */}
       <Title
         title="Let's Work Together"
-        subtitle="Want to hire me? Have a project in mind? Want to collaborate? Or just want to say hello? I'd love to hear from you and explore the possibilities together."
+        subtitle="Want to hire me full time? Have a project in mind? Want to collaborate on something cool? I'd love to hear from you and explore the possibilities together."
       />
 
-      {/* Form background with glass effect */}
       <Card>
         <form
           onSubmit={(e) => {
@@ -178,7 +177,7 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref, className }) => {
             textareaRef={messageRef}
             label="Your Message"
             name="message"
-            placeholder="Tell me more about your project, ideas, or questions..."
+            placeholder="Tell me more about your company, project, ideas, or questions..."
             required
             value={formData.message}
             onChange={(value) => handleInputChange('message', value)}
