@@ -129,7 +129,15 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref, className = '' }) => {
         title="Let's Work Together"
         subtitle="Want to hire me full time? Have a project in mind? Want to collaborate on something cool? I'd love to hear from you and explore the possibilities together."
       />
-
+      <p className="-mt-6 mb-6 text-center text-brown-s dark:text-pink-p">
+        or email me at{' '}
+        <a
+          href="mailto:michael.lugashi@gmail.com"
+          className="font-bold text-brown-p dark:text-pink-p underline underline-offset-4 decoration-2 decoration-brown-p dark:decoration-pink-p hover:no-underline hover:bg-pink-p/60 dark:hover:bg-brown-p/20 rounded px-1 transition-colors"
+        >
+          michael.lugashi@gmail.com
+        </a>
+      </p>
       <Card>
         <form
           onSubmit={(e) => {
@@ -218,7 +226,6 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref, className = '' }) => {
           </div>
         </form>
       </Card>
-
       {/* Bottom decorative element */}
       <Footer text="Ready to start something amazing?" />
     </section>
