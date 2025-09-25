@@ -2,13 +2,14 @@ import { Fragment } from 'react';
 import Title from '../components/Title';
 import ProjectCard from '../components/ProjectCard';
 import StripedBox from '../components/StripedBox';
-
 interface Project {
   imageUrl: string;
   title: string;
   text: string;
   buttonText: string;
   url: string;
+  testUsername?: string;
+  testPassword?: string;
 }
 
 const Projects: React.FC<{ projects: Project[] }> = ({ projects }) => {
@@ -26,7 +27,7 @@ const Projects: React.FC<{ projects: Project[] }> = ({ projects }) => {
       {projects.map((project, index) => (
         <Fragment key={project.title}>
           <ProjectCard {...project} />
-          {index !== projects.length - 1 && <hr className="my-20 hidden laptop:block border-gray-p" />}
+          {index !== projects.length - 1 && <hr className="my-20 invisible laptop:visible border-gray-p" />}
         </Fragment>
       ))}
     </section>
