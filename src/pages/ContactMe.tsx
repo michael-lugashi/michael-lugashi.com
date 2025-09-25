@@ -126,6 +126,7 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref, className = '' }) => {
     <section className={`relative max-w-4xl mx-auto laptop:px-6 ${className}`} ref={ref}>
       {/* Header Section */}
       <Title
+        align="center"
         title="Let's Work Together"
         subtitle="Want to hire me full time? Have a project in mind? Want to collaborate on something cool? I'd love to hear from you and explore the possibilities together."
       />

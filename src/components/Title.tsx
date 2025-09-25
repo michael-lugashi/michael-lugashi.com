@@ -23,7 +23,9 @@ const Title: React.FC<TitleProps> = ({ title, subtitle, showLine = true, align =
 
   return (
     <div className={`${alignmentClasses[align]} mb-10 relative ${className}`}>
-      <h2 className="text-5xl font-bold  mb-6 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-brown-p via-brown-s to-brown-p dark:from-pink-p dark:via-pink-p dark:to-brown-p">
+      <h2
+        className={`${lineAlignmentClasses[align]} text-5xl font-bold  mb-6 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-brown-p via-brown-p to-brown-s dark:from-pink-p dark:via-pink-p dark:to-brown-s w-fit`}
+      >
         {title}
         <span className="font-bold text-brown-s">.</span>
       </h2>
