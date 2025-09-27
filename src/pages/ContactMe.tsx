@@ -47,7 +47,6 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref, className = '' }) => {
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const notify = useNotify();
 
   const validateForm = (): boolean => {
@@ -108,22 +107,16 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref, className = '' }) => {
     }
 
     setIsSubmitting(true);
-    setSubmitStatus('idle');
 
     try {
       // Simulate form submission - replace with actual API call
       //   throw new Error('Test error');
       await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
 
-      // Reset success message after 3 seconds
-      setTimeout(() => {
-        setSubmitStatus('idle');
-      }, 3000);
+      notify({ message: 'Message sent successfully!', timeoutMs: 3000, type: 'success' });
     } catch {
-      setSubmitStatus('error');
+      notify({ message: 'Failed to send message. Please try again.', timeoutMs: 4000, type: 'error' });
     } finally {
       setIsSubmitting(false);
     }
@@ -222,23 +215,6 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref, className = '' }) => {
                 </span>
               )}
             </Button>
-
-            {/* Status Messages */}
-            <div className="flex-1 text-center sm:text-right">
-              {submitStatus === 'success' && (
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 rounded-full font-medium animate-fade-in">
-                  <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                  Message sent successfully!
-                </div>
-              )}
-
-              {submitStatus === 'error' && (
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-100 text-red-700 rounded-full font-medium animate-fade-in">
-                  <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-                  Failed to send message. Please try again.
-                </div>
-              )}
-            </div>
           </div>
         </form>
       </Card>
