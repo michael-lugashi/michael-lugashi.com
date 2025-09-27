@@ -148,13 +148,7 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref, className = '' }) => {
         </a>
       </p>
       <Card>
-        <form
-          onSubmit={(e) => {
-            handleSubmit(e);
-          }}
-          className="space-y-8"
-          noValidate
-        >
+        <form onSubmit={(e) => void handleSubmit(e)} className="space-y-8" noValidate>
           <TextField
             inputRef={nameRef}
             label="Your Name"
