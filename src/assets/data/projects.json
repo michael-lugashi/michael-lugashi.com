@@ -1,6 +1,6 @@
 [
   {
-    "imageUrl": "/src/assets/images/playdigo-logo.png",
+    "imageKey": "playdigo-logo",
     "buttonText": "Check it out",
     "url": "https://playdigo-dash.com/login",
     "title": "Playdigo",
@@ -9,7 +9,7 @@
     "text": "A full-stack web application for managing Playdigo’s advertising operations. It combines a modern dashboard UI with a secure backend server, handling everything from data visualization and user interaction to authentication, databases, and cloud infrastructure."
   },
   {
-    "imageUrl": "/src/assets/images/playdigo-logo.png",
+    "imageKey": "playdigo-logo",
     "buttonText": "Check it out",
     "url": "https://playdigo-dash.com/login",
     "title": "Playdigo",

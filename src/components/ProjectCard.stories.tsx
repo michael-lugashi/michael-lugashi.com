@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import ProjectCard from './ProjectCard';
+import { getProjectImage } from '../assets/images';
 
 const meta: Meta<typeof ProjectCard> = {
   title: 'Components/ProjectCard',
@@ -48,7 +49,7 @@ type Story = StoryObj<typeof meta>;
 // Default story
 export const Default: Story = {
   args: {
-    imageUrl: '/src/assets/images/computer.png',
+    imageUrl: getProjectImage('computer'),
     title: 'Sample Project',
     text: 'This is a sample project description that explains what the project does and its key features. It provides enough detail to give users a good understanding of the project.',
     buttonText: 'View Project',
@@ -59,7 +60,7 @@ export const Default: Story = {
 // Web Development Project
 export const WebDevelopment: Story = {
   args: {
-    imageUrl: '/src/assets/images/computer.png',
+    imageUrl: getProjectImage('computer'),
     title: 'E-Commerce Platform',
     text: 'A full-stack e-commerce platform built with React, Node.js, and PostgreSQL. Features include user authentication, payment processing, inventory management, and admin dashboard.',
     buttonText: 'Live Demo',
@@ -70,7 +71,7 @@ export const WebDevelopment: Story = {
 // Mobile App Project
 export const MobileApp: Story = {
   args: {
-    imageUrl: '/src/assets/images/frisbee.png',
+    imageUrl: getProjectImage('computer'),
     title: 'Fitness Tracker App',
     text: 'A cross-platform mobile application for tracking workouts, nutrition, and fitness goals. Built with React Native and integrated with various fitness APIs.',
     buttonText: 'Download App',
@@ -81,7 +82,7 @@ export const MobileApp: Story = {
 // Data Science Project
 export const DataScience: Story = {
   args: {
-    imageUrl: '/src/assets/images/frisbee3.png',
+    imageUrl: getProjectImage('computer'),
     title: 'Machine Learning Model',
     text: 'A predictive analytics model for customer churn prediction using Python, scikit-learn, and TensorFlow. Achieved 94% accuracy on test data.',
     buttonText: 'View Code',
@@ -92,7 +93,7 @@ export const DataScience: Story = {
 // Long Description
 export const LongDescription: Story = {
   args: {
-    imageUrl: '/src/assets/images/me-doodle.png',
+    imageUrl: getProjectImage('me-doodle'),
     title: 'Complex Enterprise Solution',
     text: 'This is a comprehensive enterprise-level solution that handles multiple business processes including customer relationship management, inventory tracking, financial reporting, and employee management. The system integrates with various third-party APIs and provides real-time analytics and reporting capabilities. Built with modern technologies and following best practices for scalability and maintainability.',
     buttonText: 'Learn More',
@@ -103,7 +104,7 @@ export const LongDescription: Story = {
 // Short Description
 export const ShortDescription: Story = {
   args: {
-    imageUrl: '/src/assets/images/computer.png',
+    imageUrl: getProjectImage('computer'),
     title: 'Simple Tool',
     text: 'A simple utility tool for developers.',
     buttonText: 'Try It',
@@ -114,7 +115,7 @@ export const ShortDescription: Story = {
 // Custom Styling
 export const CustomStyling: Story = {
   args: {
-    imageUrl: '/src/assets/images/frisbee.png',
+    imageUrl: getProjectImage('computer'),
     title: 'Custom Styled Project',
     text: 'This project card demonstrates custom styling capabilities.',
     buttonText: 'Explore',
@@ -128,21 +129,21 @@ export const MultipleCards: Story = {
   render: () => (
     <div className="space-y-6">
       <ProjectCard
-        imageUrl="/src/assets/images/computer.png"
+        imageUrl={getProjectImage('computer')}
         title="Project Alpha"
         text="First project in the portfolio showcasing web development skills."
         buttonText="View Project"
         url="https://example.com/alpha"
       />
       <ProjectCard
-        imageUrl="/src/assets/images/frisbee.png"
+        imageUrl={getProjectImage('playdigo-logo')}
         title="Project Beta"
         text="Second project demonstrating mobile app development capabilities."
         buttonText="Download"
         url="https://example.com/beta"
       />
       <ProjectCard
-        imageUrl="/src/assets/images/frisbee3.png"
+        imageUrl={getProjectImage('me-doodle')}
         title="Project Gamma"
         text="Third project featuring data science and machine learning expertise."
         buttonText="View Code"

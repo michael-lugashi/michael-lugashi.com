@@ -2,8 +2,20 @@ import { Fragment } from 'react';
 import Title from '../components/Title';
 import ProjectCard from '../components/ProjectCard';
 import StripedBox from '../components/StripedBox';
+import { getProjectImage, type ImageKey } from '../assets/images';
+
+interface ProjectData {
+  imageKey: string;
+  title: string;
+  text: string;
+  buttonText: string;
+  url: string;
+  testUsername?: string;
+  testPassword?: string;
+}
+
 interface Project {
-  imageUrl: string;
+  imageKey: ImageKey;
   title: string;
   text: string;
   buttonText: string;
@@ -26,7 +38,10 @@ const Projects: React.FC<{ projects: Project[] }> = ({ projects }) => {
       </div>
       {projects.map((project, index) => (
         <Fragment key={project.title}>
-          <ProjectCard {...project} />
+          <ProjectCard 
+            {...project} 
+            imageUrl={getProjectImage(project.imageKey)}
+          />
           {index !== projects.length - 1 && <hr className="my-20 invisible laptop:visible border-gray-p" />}
         </Fragment>
       ))}
