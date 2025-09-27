@@ -112,6 +112,20 @@ html.theme-transition * {
   }
 }
 
+@keyframes slide-down {
+  0% {
+    transform: translate(0, -120%);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@utility animate-slide-down {
+  animation: slide-down 0.35s ease-out forwards;
+}
+
 .animate-fade-in {
   animation: fade-in 0.5s ease-out;
 }
