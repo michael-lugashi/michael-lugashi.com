@@ -13,6 +13,11 @@ export const projectImages = {
 export type ImageKey = keyof typeof projectImages;
 
 // Helper function to get image URL from key
-export const getProjectImage = (imageKey: ImageKey): string => {
-  return projectImages[imageKey];
+export const getProjectImage = (imageKey: ImageKey | string): string => {
+  if (imageKey in projectImages) {
+    return projectImages[imageKey as ImageKey];
+  }
+  // Fallback to computer image if key doesn't exist
+  console.warn(`Image key "${imageKey}" not found, falling back to computer image`);
+  return projectImages.computer;
 };

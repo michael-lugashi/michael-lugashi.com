@@ -4,18 +4,8 @@ import ProjectCard from '../components/ProjectCard';
 import StripedBox from '../components/StripedBox';
 import { getProjectImage, type ImageKey } from '../assets/images';
 
-interface ProjectData {
-  imageKey: string;
-  title: string;
-  text: string;
-  buttonText: string;
-  url: string;
-  testUsername?: string;
-  testPassword?: string;
-}
-
 interface Project {
-  imageKey: ImageKey;
+  imageKey: string;
   title: string;
   text: string;
   buttonText: string;
@@ -40,7 +30,7 @@ const Projects: React.FC<{ projects: Project[] }> = ({ projects }) => {
         <Fragment key={project.title}>
           <ProjectCard 
             {...project} 
-            imageUrl={getProjectImage(project.imageKey)}
+            imageUrl={getProjectImage(project.imageKey as ImageKey)}
           />
           {index !== projects.length - 1 && <hr className="my-20 invisible laptop:visible border-gray-p" />}
         </Fragment>
