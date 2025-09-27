@@ -1,4 +1,5 @@
 import CopyIcon from '../assets/svgs/copy';
+import useNotify from '../hooks/useNotify';
 
 interface CopyButtonProps {
   text: string;
@@ -6,9 +7,14 @@ interface CopyButtonProps {
 }
 
 const CopyButton: React.FC<CopyButtonProps> = ({ text, className = '' }) => {
-  const handleClick = () => {
-    void navigator.clipboard.writeText(text);
-    // TODO: add notification
+  const notify = useNotify();
+  const handleClick = async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+      notify({ message: 'Copied to clipboard', type: 'info' });
+    } catch {
+      notify({ message: 'Failed to copy to clipboard', type: 'error' });
+    }
   };
 
   return (
