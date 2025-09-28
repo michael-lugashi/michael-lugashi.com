@@ -28,10 +28,7 @@ const Projects: React.FC<{ projects: Project[] }> = ({ projects }) => {
       </div>
       {projects.map((project, index) => (
         <Fragment key={project.title}>
-          <ProjectCard 
-            {...project} 
-            imageUrl={getProjectImage(project.imageKey as ImageKey)}
-          />
+          <ProjectCard {...project} imageUrl={getProjectImage(project.imageKey as ImageKey)} />
           {index !== projects.length - 1 && <hr className="my-20 invisible laptop:visible border-gray-p" />}
         </Fragment>
       ))}

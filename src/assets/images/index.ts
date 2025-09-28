@@ -6,16 +6,16 @@ import meDoodle from './me-doodle.png';
 // Export image mapping object
 export const projectImages = {
   'playdigo-logo': playdigoLogo,
-  'computer': computer,
+  computer: computer,
   'me-doodle': meDoodle,
 } as const;
 
 export type ImageKey = keyof typeof projectImages;
 
 // Helper function to get image URL from key
-export const getProjectImage = (imageKey: ImageKey | string): string => {
+export const getProjectImage = (imageKey: ImageKey): string => {
   if (imageKey in projectImages) {
-    return projectImages[imageKey as ImageKey];
+    return projectImages[imageKey];
   }
   // Fallback to computer image if key doesn't exist
   console.warn(`Image key "${imageKey}" not found, falling back to computer image`);
