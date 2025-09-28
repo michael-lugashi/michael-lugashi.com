@@ -6,6 +6,7 @@ import Title from '../components/Title';
 import Footer from '../components/Footer';
 import Button from '../components/Button';
 import Send from '../assets/svgs/Send';
+import useNotify from '../hooks/useNotify';
 
 interface ContactMeProps {
   ref: React.RefObject<HTMLDivElement | null>;
@@ -46,7 +47,7 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref, className = '' }) => {
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const notify = useNotify();
 
   const validateForm = (): boolean => {
     let firstError: keyof FormData | undefined;
@@ -55,6 +56,15 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref, className = '' }) => {
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
       firstError = 'name';
+    } else {
+      const nameParts = formData.name.trim().split(' ');
+      if (nameParts.length < 2 || nameParts.some((part) => part === '')) {
+        newErrors.name = 'Please enter your first and last name';
+        firstError = 'name';
+      } else if (nameParts[0].length < 2 || nameParts[nameParts.length - 1].length < 2) {
+        newErrors.name = 'Both first and last name must be at least 2 characters';
+        firstError = 'name';
+      }
     }
 
     if (!formData.email.trim()) {
@@ -68,18 +78,22 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref, className = '' }) => {
     if (!formData.subject.trim()) {
       newErrors.subject = 'Subject is required';
       firstError ??= 'subject';
+    } else if (formData.subject.trim().length < 2) {
+      newErrors.subject = 'Subject must be at least 2 characters long';
+      firstError ??= 'subject';
     }
 
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required';
       firstError ??= 'message';
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Message must be at least 10 characters long';
+    } else if (formData.message.trim().length < 20) {
+      newErrors.message = 'Message must be at least 20 characters long';
       firstError ??= 'message';
     }
 
     setErrors(newErrors);
     if (firstError) {
+      notify({ message: 'Please fill out all fields correctly', timeoutMs: 6000, type: 'error' });
       fieldRefs[firstError].current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
     return Object.keys(newErrors).length === 0;
@@ -93,22 +107,16 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref, className = '' }) => {
     }
 
     setIsSubmitting(true);
-    setSubmitStatus('idle');
 
     try {
       // Simulate form submission - replace with actual API call
       //   throw new Error('Test error');
       await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
 
-      // Reset success message after 3 seconds
-      setTimeout(() => {
-        setSubmitStatus('idle');
-      }, 3000);
+      notify({ message: 'Message sent successfully!', timeoutMs: 3000, type: 'success' });
     } catch {
-      setSubmitStatus('error');
+      notify({ message: 'Failed to send message. Please try again.', timeoutMs: 4000, type: 'error' });
     } finally {
       setIsSubmitting(false);
     }
@@ -140,13 +148,7 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref, className = '' }) => {
         </a>
       </p>
       <Card>
-        <form
-          onSubmit={(e) => {
-            handleSubmit(e);
-          }}
-          className="space-y-8"
-          noValidate
-        >
+        <form onSubmit={(e) => void handleSubmit(e)} className="space-y-8" noValidate>
           <TextField
             inputRef={nameRef}
             label="Your Name"
@@ -207,23 +209,6 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref, className = '' }) => {
                 </span>
               )}
             </Button>
-
-            {/* Status Messages */}
-            <div className="flex-1 text-center sm:text-right">
-              {submitStatus === 'success' && (
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 rounded-full font-medium animate-fade-in">
-                  <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                  Message sent successfully!
-                </div>
-              )}
-
-              {submitStatus === 'error' && (
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-100 text-red-700 rounded-full font-medium animate-fade-in">
-                  <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-                  Failed to send message. Please try again.
-                </div>
-              )}
-            </div>
           </div>
         </form>
       </Card>
