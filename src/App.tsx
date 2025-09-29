@@ -26,7 +26,7 @@ function App() {
           <StickyContainer
             triggerRef={headerSectionRef}
             startOffset={0}
-            endOffset={1}
+            endOffset={0.8}
             behavior="scroll"
             className="fixed top-17 right-6 laptop:right-1/12 desktop:right-1/7 short:top-[7vh] tall:top-[20vh] z-20"
           >
