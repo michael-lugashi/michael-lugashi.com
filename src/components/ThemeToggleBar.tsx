@@ -3,7 +3,7 @@ import useColorMode from '../hooks/useDarkMode';
 import Sun from '../assets/svgs/Sun';
 import Moon from '../assets/svgs/Moon';
 
-const ThemeToggleBar: React.FC<{ className: string }> = ({ className }) => {
+const ThemeToggleBar: React.FC = () => {
   const { isDarkMode, toggleColorMode } = useColorMode();
 
   // Spring animation to slide down from above
@@ -18,7 +18,7 @@ const ThemeToggleBar: React.FC<{ className: string }> = ({ className }) => {
       type="button"
       onClick={toggleColorMode}
       style={springProps}
-      className={`${className} flex flex-col laptop:flex-row items-center justify-center laptop:gap-4 cursor-pointer hover:scale-110 transition-all duration-200`}
+      className="flex flex-col laptop:flex-row items-center justify-center laptop:gap-4 cursor-pointer hover:scale-110 transition-all duration-200 !z-[9999]"
       aria-label="Toggle color mode"
     >
       <span className="text-gray-p tracking-[0.3em] text-xs laptop:text-sm">CLICK ME</span>
