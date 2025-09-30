@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 import TextField from '../components/TextField';
 import TextArea from '../components/TextArea';
 import Card from '../components/Card';
@@ -7,6 +8,7 @@ import Footer from '../components/Footer';
 import Button from '../components/Button';
 import Send from '../assets/svgs/Send';
 import useNotify from '../hooks/useNotify';
+import emailConfig from '../config/email';
 
 interface ContactMeProps {
   ref: React.RefObject<HTMLDivElement | null>;
@@ -107,16 +109,31 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref, className = '' }) => {
     }
 
     setIsSubmitting(true);
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
+    if (!serviceId || !templateId || !publicKey) {
+      throw new Error('EmailJS not configured. Please set up your EmailJS credentials.');
+    }
 
     try {
-      // Simulate form submission - replace with actual API call
-      //   throw new Error('Test error');
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      // Send email using EmailJS
+      await emailjs.send(
+        emailConfig.serviceId,
+        emailConfig.templateId,
+        { ...formData, time: new Date().toLocaleString() },
+        emailConfig.publicKey
+      );
 
-      notify({ message: 'Message sent successfully!', timeoutMs: 3000, type: 'success' });
+      // Clear form on success
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      notify({ message: "Message sent successfully! I'll get back to you soon.", timeoutMs: 6000, type: 'success' });
     } catch {
-      notify({ message: 'Failed to send message. Please try again.', timeoutMs: 4000, type: 'error' });
+      notify({
+        message: 'Failed to send message. Please try emailing me directly at michael.lugashi@gmail.com',
+        timeoutMs: 6000,
+        type: 'error',
+      });
     } finally {
       setIsSubmitting(false);
     }
