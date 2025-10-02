@@ -2,6 +2,7 @@
 import type { Preview } from '@storybook/react-vite';
 import { withThemeByClassName } from '@storybook/addon-themes';
 import '../src/index.css';
+import './theme-backgrounds.css';
 
 export const decorators = [
   // Toggle the .dark class on <html> / preview root
