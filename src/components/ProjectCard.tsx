@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import CopyButton from './CopyButton';
+import { trackProjectClick } from '../config/analytics';
 
 interface ProjectCardProps {
   imageUrl: string;
@@ -24,6 +25,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   testPassword,
 }) => {
   const handleButtonClick = () => {
+    trackProjectClick(title, url);
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
