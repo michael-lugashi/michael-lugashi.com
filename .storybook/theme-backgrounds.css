@@ -1,0 +1,41 @@
+/* Storybook theme-dependent background styles */
+
+/* Main story canvas background */
+.sb-show-main {
+  background-color: var(--color-white-p) !important;
+  transition: background-color 900ms ease;
+}
+
+.dark .sb-show-main {
+  background-color: var(--color-black-p) !important;
+}
+
+/* Docs page background */
+.docs-story {
+  background-color: var(--color-white-p) !important;
+  transition: background-color 900ms ease;
+}
+
+.dark .docs-story {
+  background-color: var(--color-black-p) !important;
+}
+
+/* Story iframe background */
+#storybook-root {
+  background-color: var(--color-white-p);
+  transition: background-color 900ms ease;
+}
+
+.dark #storybook-root {
+  background-color: var(--color-black-p);
+}
+
+/* Canvas background for better coverage */
+.sb-main-padded {
+  background-color: var(--color-white-p) !important;
+  transition: background-color 900ms ease;
+}
+
+.dark .sb-main-padded {
+  background-color: var(--color-black-p) !important;
+}

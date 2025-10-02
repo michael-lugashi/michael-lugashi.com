@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import projects from '../assets/data/projects.json';
 import Projects from './Projects';
+import NotificationsProvider from '../contexts/NotificationProvider';
 
 const meta: Meta<typeof Projects> = {
   title: 'Pages/Projects',
@@ -15,4 +16,10 @@ const meta: Meta<typeof Projects> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  render: (args) => (
+    <NotificationsProvider>
+      <Projects {...args} />
+    </NotificationsProvider>
+  ),
+};
