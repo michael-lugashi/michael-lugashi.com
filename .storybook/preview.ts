@@ -6,7 +6,7 @@ import './theme-backgrounds.css';
 
 export const decorators = [
   // Toggle the .dark class on <html> / preview root
-   
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
   withThemeByClassName({
     themes: {
       light: '', // no class for light
