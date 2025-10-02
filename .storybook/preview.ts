@@ -1,7 +1,36 @@
+// .storybook/preview.ts
 import type { Preview } from '@storybook/react-vite';
+import { withThemeByClassName } from '@storybook/addon-themes';
 import '../src/index.css';
 
+export const decorators = [
+  // Toggle the .dark class on <html> / preview root
+   
+  withThemeByClassName({
+    themes: {
+      light: '', // no class for light
+      dark: 'dark', // adds `.dark`
+    },
+    defaultTheme: 'light',
+  }),
+];
+
 const preview: Preview = {
+  globalTypes: {
+    theme: {
+      description: 'Global theme for components',
+      defaultValue: 'light',
+      toolbar: {
+        title: 'Theme',
+        icon: 'mirror',
+        items: [
+          { value: 'light', title: 'Light' },
+          { value: 'dark', title: 'Dark' },
+        ],
+        dynamicTitle: true,
+      },
+    },
+  },
   parameters: {
     controls: {
       matchers: {
@@ -9,13 +38,7 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-
-    a11y: {
-      // 'todo' - show a11y violations in the test UI only
-      // 'error' - fail CI on a11y violations
-      // 'off' - skip a11y checks entirely
-      test: 'todo',
-    },
+    a11y: { test: 'todo' },
   },
 };
 
