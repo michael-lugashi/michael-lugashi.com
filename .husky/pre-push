@@ -1,0 +1,15 @@
+#!/bin/sh
+# Only run ESLint when pushing to main branch
+protected_branch='main'
+current_branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
+
+if [ $protected_branch = $current_branch ]; then
+    echo "Running ESLint before pushing to main branch..."
+    npm run lint
+    if [ $? -ne 0 ]; then
+        echo "ESLint failed. Push aborted."
+        exit 1
+    fi
+else
+    echo "Skipping ESLint check (not pushing to main branch)"
+fi

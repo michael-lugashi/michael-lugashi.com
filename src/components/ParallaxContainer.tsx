@@ -33,4 +33,3 @@ const ParallaxContainer: React.FC<ParallaxContainerProps> = ({
 };
 
 export default ParallaxContainer;
-
