@@ -24,7 +24,7 @@ export const initGA = (measurementId: string = GA_MEASUREMENT_ID) => {
 
   // Define gtag function using rest parameters
   window.gtag = function (...args) {
-    window.dataLayer.push(...args);
+    window.dataLayer.push([...args]);
   };
 
   // Initialize with current date
