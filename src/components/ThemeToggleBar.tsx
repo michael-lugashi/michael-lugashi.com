@@ -2,6 +2,7 @@ import { useSpring, animated } from '@react-spring/web';
 import useColorMode from '../hooks/useDarkMode';
 import Sun from '../assets/svgs/Sun';
 import Moon from '../assets/svgs/Moon';
+import { trackThemeToggle } from '../config/analytics';
 
 const ThemeToggleBar: React.FC = () => {
   const { isDarkMode, toggleColorMode } = useColorMode();
@@ -13,10 +14,16 @@ const ThemeToggleBar: React.FC = () => {
     config: { tension: 120, friction: 14 },
   });
 
+  const handleToggleClick = () => {
+    const newTheme = isDarkMode ? 'light' : 'dark';
+    trackThemeToggle(newTheme);
+    toggleColorMode();
+  };
+
   return (
     <animated.button
       type="button"
-      onClick={toggleColorMode}
+      onClick={handleToggleClick}
       style={springProps}
       className="flex flex-col laptop:flex-row items-center justify-center laptop:gap-4 cursor-pointer hover:scale-110 transition-all duration-200 !z-[9999]"
       aria-label="Toggle color mode"

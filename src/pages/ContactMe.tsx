@@ -9,6 +9,7 @@ import Button from '../components/Button';
 import Send from '../assets/svgs/Send';
 import useNotify from '../hooks/useNotify';
 import emailConfig from '../config/email';
+import { trackContactFormSubmit } from '../config/analytics';
 
 interface ContactMeProps {
   ref: React.RefObject<HTMLDivElement | null>;
@@ -124,6 +125,9 @@ const ContactMe: React.FC<ContactMeProps> = ({ ref, className = '' }) => {
         { ...formData, time: new Date().toLocaleString() },
         emailConfig.publicKey
       );
+
+      // Track successful form submission
+      trackContactFormSubmit('email');
 
       // Clear form on success
       setFormData({ name: '', email: '', subject: '', message: '' });

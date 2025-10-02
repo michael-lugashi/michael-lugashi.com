@@ -10,11 +10,17 @@ import ThemeToggleBar from './components/ThemeToggleBar';
 import NotificationsProvider from './contexts/NotificationProvider';
 import StickyContainer from './components/StickyContainer';
 import ParallaxContainer from './components/ParallaxContainer';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
+import { trackPageView } from './config/analytics';
 
 function App() {
   const [ContactMeRef, handleScrollToContactMe] = useScrollIntoView();
   const headerSectionRef = useRef<HTMLDivElement>(null);
+
+  // Track initial page view
+  useEffect(() => {
+    trackPageView(window.location.href, document.title);
+  }, []);
 
   return (
     <NotificationsProvider>
