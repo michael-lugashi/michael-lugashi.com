@@ -12,6 +12,20 @@ _Click above to explore the interactive portfolio_
 
 A modern, responsive personal portfolio website showcasing my work as a Full-Stack Engineer. Built with React, TypeScript, and Tailwind CSS, featuring smooth animations, dark mode support, and a comprehensive contact system.
 
+## 📸 Screenshots
+
+<div align="center">
+
+### Light Mode
+
+![Website Light Mode](.github/images/website-image-light-mode.png)
+
+### Dark Mode
+
+![Website Dark Mode](.github/images/website-image-dark-mode.png)
+
+</div>
+
 ## 🌟 Features
 
 ### Core Functionality
