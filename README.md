@@ -1,6 +1,14 @@
 # Michael Lugashi - Personal Portfolio Website
 
-🌐 **[Visit the live site →](https://michael-lugashi.com)**
+<div align="center">
+
+## 🌐 **[🚀 VISIT LIVE SITE 🚀](https://michaellugashi.com)**
+
+_Click above to explore the interactive portfolio_
+
+</div>
+
+---
 
 A modern, responsive personal portfolio website showcasing my work as a Full-Stack Engineer. Built with React, TypeScript, and Tailwind CSS, featuring smooth animations, dark mode support, and a comprehensive contact system.
 
