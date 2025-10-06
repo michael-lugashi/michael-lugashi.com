@@ -4,17 +4,25 @@
     "buttonText": "Check it out",
     "url": "https://playdigo-dash.com/login",
     "title": "Playdigo",
+    "customColor": "#84daf6",
     "testUsername": "fake@gmail.com",
     "testPassword": "-]j]VSKgN0#Z",
-    "text": "A full-stack web application for managing Playdigo’s advertising operations. It combines a modern dashboard UI with a secure backend server, handling everything from data visualization and user interaction to authentication, databases, and cloud infrastructure."
+    "text": "A full-stack web application for managing Playdigo's advertising operations. It combines a modern dashboard UI with a secure backend server, handling everything from data visualization and user interaction to authentication, databases, and cloud infrastructure."
   },
   {
-    "imageKey": "playdigo-logo",
+    "imageKey": "KeyZoo-logo",
     "buttonText": "Check it out",
-    "url": "https://playdigo-dash.com/login",
-    "title": "Playdigo",
-    "testUsername": "fake@gmail.com",
-    "testPassword": "-]j]VSKgN0#Z",
-    "text": "A full-stack web application for managing Playdigo’s advertising operations. It combines a modern dashboard UI with a secure backend server, handling everything from data visualization and user interaction to authentication, databases, and cloud infrastructure."
+    "url": "https://keyzoo.com/",
+    "title": "KeyZoo",
+    "customColor": "#63B75B",
+    "text": "Developed a scalable full-stack platform powering KeyZoo’s nationwide locksmith network. Built a responsive, SEO-optimized site with booking flows, location search, and real-time status updates. Engineered a secure backend with REST APIs, geolocation-based technician dispatch, payment integration, and SMS/email notifications. Delivered admin dashboards, multi-state pricing logic, monitoring, and high-availability infrastructure."
+  },
+  {
+    "imageKey": "InsightGenie-logo",
+    "buttonText": "Check it out",
+    "url": "https://insightgenie.ai/",
+    "title": "Insight Genie",
+    "customColor": "#7849fc",
+    "text": "Developed the full website and backend for InsightGenie, including secure APIs that connect banks to AI models providing credit and risk insights in markets lacking such systems. Built scalable infrastructure, managed client API integrations, and delivered dashboards and analytics tools enabling companies to assess applicants and banks to offer informed lending."
   }
 ]

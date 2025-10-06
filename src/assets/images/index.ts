@@ -1,11 +1,15 @@
 // Import all project images
 import playdigoLogo from './playdigo-logo.png';
+import KeyZooLogo from './keyzoo-logo.png';
+import InsightGenieLogo from './insight-genie-logo.png';
 import computer from './computer.png';
 import meDoodle from './me-doodle.png';
 
 // Export image mapping object
 export const projectImages = {
   'playdigo-logo': playdigoLogo,
+  'KeyZoo-logo': KeyZooLogo,
+  'InsightGenie-logo': InsightGenieLogo,
   computer: computer,
   'me-doodle': meDoodle,
 } as const;
