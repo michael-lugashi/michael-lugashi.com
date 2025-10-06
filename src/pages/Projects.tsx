@@ -12,7 +12,6 @@ interface Project {
   url: string;
   testUsername?: string;
   testPassword?: string;
-  customColor: string;
 }
 
 const Projects: React.FC<{ projects: Project[] }> = ({ projects }) => {

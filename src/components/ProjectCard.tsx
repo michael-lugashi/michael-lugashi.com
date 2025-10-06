@@ -12,7 +12,6 @@ interface ProjectCardProps {
   className?: string;
   testUsername?: string;
   testPassword?: string;
-  customColor: string;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -24,16 +23,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   className = '',
   testUsername,
   testPassword,
-  customColor,
 }) => {
   const handleButtonClick = () => {
     trackProjectClick(title, url);
     window.open(url, '_blank', 'noopener,noreferrer');
   };
-
-  // Create dynamic gradient styles for light and dark modes
-  const lightGradient = `linear-gradient(to right, var(--color-brown-p), var(--color-brown-p), ${customColor})`;
-  const darkGradient = `linear-gradient(to right, var(--color-pink-p), var(--color-pink-p), ${customColor})`;
 
   return (
     <div className={`flex flex-col laptop:flex-row ${className}`}>
@@ -42,19 +36,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       </div>
 
       <div className="flex flex-col justify-center w-full laptop:w-7/12 laptop:px-4 text-brown-p dark:text-pink-p">
-        <h3
-          className="text-5xl font-black mb-2 pb-2 text-transparent bg-clip-text w-fit"
-          style={{
-            backgroundImage: lightGradient,
-          }}
-        >
-          <span className="dark:hidden">{title}</span>
-          <span
-            className="hidden dark:inline"
-            style={{ backgroundImage: darkGradient, WebkitBackgroundClip: 'text', backgroundClip: 'text' }}
-          >
-            {title}
-          </span>
+        <h3 className="text-5xl font-black mb-2 pb-2 text-transparent bg-clip-text bg-gradient-to-r from-brown-p via-brown-p to-brown-s dark:from-pink-p dark:via-pink-p dark:to-brown-s w-fit">
+          {title}
           <span className="text-brown-s">.</span>
         </h3>
         <p className="text-xl leading-relaxed mb-5">
